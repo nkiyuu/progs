@@ -1,0 +1,8 @@
+<h1>新規ツイート</h1>
+<%= form_for Tweet.new do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>

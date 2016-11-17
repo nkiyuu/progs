@@ -1,0 +1,4 @@
+﻿  Red_and_Black.cpp
+c:\users\shinolab\study_program\aoj\red_and_black\red_and_black\red_and_black.cpp(40): warning C4101: 'start_r': ローカル変数は 1 度も使われていません。
+c:\users\shinolab\study_program\aoj\red_and_black\red_and_black\red_and_black.cpp(40): warning C4101: 'start_c': ローカル変数は 1 度も使われていません。
+  Red_and_Black.vcxproj -> C:\Users\shinolab\study_program\AOJ\Red_and_Black\Debug\Red_and_Black.exe

@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{BEC68F2E-72AB-B771-02FF-D97908905967}") = "puzzleGamePrac", "Assembly-CSharp.csproj", "{2C3B6061-F7E6-593C-2C65-1F47A2975AED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C3B6061-F7E6-593C-2C65-1F47A2975AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C3B6061-F7E6-593C-2C65-1F47A2975AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C3B6061-F7E6-593C-2C65-1F47A2975AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C3B6061-F7E6-593C-2C65-1F47A2975AED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

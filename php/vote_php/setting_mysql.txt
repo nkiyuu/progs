@@ -1,0 +1,11 @@
+create database poll_php;
+
+grant all on poll_php.* to dbuser@localhost identified by '99966';
+
+use poll_php;
+
+create table answer(
+    id int not null auto_increment primary key,
+    answers int not null,
+    created datetime
+);

@@ -1,0 +1,11 @@
+<%= link_to @board.title, "/boards/#{@board.id}" %>
+<hr>
+<% if @board.errors.any? %>
+  <%= @board.errors.full_messages %>
+<% end %>
+<h1>Boards#edit</h1>
+<%= form_for @board do |f| %>
+    タイトル: <%= f.text_field :title %> <br>
+    作成者名: <%= f.text_field :editor %> <br>
+    <%= submit_tag %>
+<% end %>

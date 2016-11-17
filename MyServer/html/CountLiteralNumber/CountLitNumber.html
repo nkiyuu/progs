@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>文字数チェッカー</title>
+	<meta charset="utf-8" />
+    <style>
+        #memo{
+            width: 500px;
+            height: 150px;       
+        }
+        .warning{
+            color:red;
+        }
+        .out{
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>文字数チェッカー</h1>
+    <textarea id="memo"></textarea>
+    <div id="count"></div>
+    <p><a href="../index.html">&lt;先頭のページに戻る&gt;</a></p>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var NUMBER = 0;
+            var WARNING = 130;
+            var OUT = 140;
+            var count = $('#count');
+            var memo = $('#memo');
+
+            count.text(NUMBER);
+
+            function changeMemoColor(textarea) {
+                var number = textarea.val().length;
+                count.text(number);
+                if (number > WARNING) {
+                    count.addClass('warning');
+                }
+                else {
+                    count.removeClass('warning');
+                }
+                if (number > OUT) {
+                    memo.addClass('out');
+                }
+                else {
+                    memo.removeClass('out');
+                }
+            }
+
+            $('#memo').keyup(function () {
+                changeMemoColor($(this));
+            });
+
+        });
+    </script>
+</body>
+</html>

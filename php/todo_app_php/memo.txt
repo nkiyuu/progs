@@ -1,0 +1,10 @@
+create table todos(
+    id int not null auto_increment primary key,
+    state tinyint(1) default 0,
+    title text
+);
+
+insert into todos (state, title) values
+    (0, 'todo1'),
+    (1, 'todo2'),
+    (0, 'todo3');

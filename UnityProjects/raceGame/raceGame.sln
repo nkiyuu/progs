@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{F73AECA2-5383-F511-D66F-4D18C45E78D0}") = "raceGame", "Assembly-CSharp.csproj", "{235E391C-F289-6B62-8498-DE6163175BCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{235E391C-F289-6B62-8498-DE6163175BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{235E391C-F289-6B62-8498-DE6163175BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{235E391C-F289-6B62-8498-DE6163175BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{235E391C-F289-6B62-8498-DE6163175BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

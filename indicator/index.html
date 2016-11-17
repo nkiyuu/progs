@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>インジケーターテスト</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--自分のcss  -->
+    <link href="css/mycss.css" type="text/css" rel="stylesheet">
+    <!-- jqueryUI用のCSS-->
+    <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
+  </head>
+  <body>
+    <h1>在室状況</h1>
+    <div align="right" class="btns">
+        <button type="button" class="btn btn-default" id="add">追加</button>
+        <button type="button" class="btn btn-default" id="remove">削除</button>
+    </div>
+    <table class="table table-bordered" height="900">
+        <tbody>
+            <tr>
+                <td class="inLab">
+                    <h3>研究室</h3>
+                    <img src="images/test.png" id="test" />
+                </td>
+                <td class="inUniv"><h3>学内</h3></td>
+                <td class="businessTrip"><h3>出張</h3></td>
+            </tr>
+            <tr>
+                <td class="meshi"><h3>meshi</h3></td>
+                <td class="home"><h3>自宅</h3></td>
+                <td class="goOut"><h3>ちょっと出てくる</h3></td>
+            </tr >
+        </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>*1
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            $("#test").draggable();
+        });
+
+        $("#test").mouseup(function(e){
+          // var element = document.getElementById("test")
+          // var rect = element.getBoundingClientRect();
+          var posX = e.pageX ;
+          var posY = e.pageY;
+          console.log("x:" + posX + ", y:" + posY);
+        });
+
+
+    </script>
+  </body>
+</html>

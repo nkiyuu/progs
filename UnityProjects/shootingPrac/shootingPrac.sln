@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shootingPrac.CSharp", "shootingPrac.CSharp.csproj", "{2BBA1F48-88E7-9414-1BF9-3EC0FE5E9C2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BBA1F48-88E7-9414-1BF9-3EC0FE5E9C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BBA1F48-88E7-9414-1BF9-3EC0FE5E9C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BBA1F48-88E7-9414-1BF9-3EC0FE5E9C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BBA1F48-88E7-9414-1BF9-3EC0FE5E9C2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

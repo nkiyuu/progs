@@ -1,0 +1,8 @@
+<h1>ツイート一覧</h1>
+<%= link_to "新しくツイートする", "/tweets/new" %>
+<% @tweets.each do |tweet| %>
+    <hr>
+    <h1><%= tweet.title %></h1><br>
+    <p><%= tweet.content %></p><br>
+<% end %>
+

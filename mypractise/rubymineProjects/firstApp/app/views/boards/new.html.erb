@@ -1,0 +1,11 @@
+<%= link_to "スレッド一覧に戻る", boards_path %>
+<hr>
+<h1>Boards#new</h1>
+<% if @board.errors.any? %>
+    <%= @board.errors.full_messages %>
+<% end %>
+<%= form_for @board do |f| %>
+  タイトル: <%= f.text_field :title %> <br>
+  作者名: <%= f.text_field :editor %> <br>
+  <%= submit_tag %>
+<% end %>

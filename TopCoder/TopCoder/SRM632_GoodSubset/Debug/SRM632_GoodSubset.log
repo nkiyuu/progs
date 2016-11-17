@@ -1,0 +1,13 @@
+﻿  GoodSubset.cpp
+<<<<<<< HEAD
+c:\users\shinolab\documents\progprac\topcoder\topcoder\srm632_goodsubset\goodsubset.cpp(18): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\shinolab\documents\progprac\topcoder\topcoder\srm632_goodsubset\goodsubset.cpp(34): warning C4244: '=': 'double' から 'int' への変換です。データが失われる可能性があります。
+c:\users\shinolab\documents\progprac\topcoder\topcoder\srm632_goodsubset\goodsubset.cpp(37): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\shinolab\documents\progprac\topcoder\topcoder\srm632_goodsubset\goodsubset.cpp(40): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\shinolab\documents\progprac\topcoder\topcoder\srm632_goodsubset\goodsubset.cpp(53): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  SRM632_GoodSubset.vcxproj -> C:\Users\shinolab\Documents\progPrac\TopCoder\TopCoder\Debug\SRM632_GoodSubset.exe
+=======
+c:\users\home\documents\progprac\topcoder\topcoder\srm632_goodsubset\goodsubset.cpp(16): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\home\documents\progprac\topcoder\topcoder\srm632_goodsubset\goodsubset.cpp(26): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  SRM632_GoodSubset.vcxproj -> C:\Users\Home\Documents\progPrac\TopCoder\TopCoder\Debug\SRM632_GoodSubset.exe
+>>>>>>> 87b10579aaf79e5d979150971374f0a262576cd8
