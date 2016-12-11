@@ -20,7 +20,7 @@ typedef pair<P, P> L;  // Line
 typedef vector<P> VP;
 typedef pair<P, D> C; // circle
 typedef vector<C> VC;
-const D EPS = 1e-9;    // 許容誤差。問題によって変える
+const D EPS = 1e-15;    // 許容誤差。問題によって変える
 #define X real()
 #define LE(n,m) ((n) < (m) + EPS)
 #define GE(n,m) ((n) + EPS > (m))
@@ -59,10 +59,15 @@ VP crosspointLC(P a1, P a2, P c, D r) {
     return ps;
 }
 
+// 二点間の距離を求める
+double getDist(P from, P target){
+    return sqrt(pow(from.real() - target.real(), 2) + pow(from.imag() - target.imag(), 2));
+}
+
 P getShootPoint(P shipPos, VC asteroids){
     VP contactFromShip = {} ;
     int destroyNumber = 0, destroyNumberLast = 0;
-    P shootPoint;
+    P shootPoint, shootPointLast = P(shipPos.real(), shipPos.imag());
     for(unsigned int i = 0; i < asteroids.size(); i++){
         contactFromShip = tangentPoints(asteroids[i].first, asteroids[i].second, shipPos); // ある隕石との接点の集合を求める
         for(unsigned int j = 0; j < contactFromShip.size(); j++) {
@@ -71,9 +76,16 @@ P getShootPoint(P shipPos, VC asteroids){
                 destroyNumber += crosspointLC(shipPos, contactFromShip[j], asteroids[k].first,
                                               asteroids[k].second).size();
             }
-            if(destroyNumber> destroyNumberLast){
+            if(destroyNumber> destroyNumberLast) {
                 destroyNumberLast = destroyNumber;
                 shootPoint = contactFromShip[j];
+                shootPointLast = shootPoint;
+            }
+            else if(destroyNumber == destroyNumberLast){
+                if(getDist(shipPos, contactFromShip[j]) > getDist(shipPos, shootPointLast)){
+                    shootPoint = contactFromShip[j];
+                    shootPointLast = shootPoint;
+                }
             }
         }
     }
@@ -122,21 +134,25 @@ namespace hpc {
             for(int i = 0; i < aStage.asteroidCount(); i++){
                 if(aStage.asteroid(i).exists()) {
                     asteroids.push_back(
-                            C(P(aStage.asteroid(i).pos().x, aStage.asteroid(i).pos().y), aStage.asteroid(i).radius()));
+                            C(P(aStage.asteroid(i).pos().x, aStage.asteroid(i).pos().y), aStage.asteroid(i).radius()-0.0001));
                 }
             }
             // 発射目標にする小惑星を決定します。
             Vector2 targetShootPos;
-            P shootPos = getShootPoint(P(aStage.ship().pos().x, aStage.ship().pos().x), asteroids);
+            P shootPos = getShootPoint(P(aStage.ship().pos().x, aStage.ship().pos().y), asteroids);
             targetShootPos= Vector2((float)shootPos.real(), (float)shootPos.imag());
             return Action::Shoot(targetShootPos);
         } else {
             // 移動目標にする小惑星を決定します。
             Vector2 targetMovePos;
+            double distFromShip, distFromShipLast = 100000000;
             for (int i = aStage.asteroidCount() - 1; i >= 0; --i) {
                 if (aStage.asteroid(i).exists()) {
-                    targetMovePos = aStage.asteroid(i).pos();
-                    break;
+                    distFromShip = sqrt(pow(aStage.ship().pos().x - aStage.asteroid(i).pos().x, 2) + pow(aStage.ship().pos().y - aStage.asteroid(i).pos().y, 2));
+                    if(distFromShip < distFromShipLast){
+                        distFromShipLast = distFromShip;
+                        targetMovePos = aStage.asteroid(i).pos();
+                    }
                 }
             }
             return Action::Move(targetMovePos);
