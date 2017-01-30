@@ -1,0 +1,3 @@
+[submodule "codecheck/asahi/keyword"]
+	path = codecheck/asahi/keyword
+	url = https://github.com/nkiyuu/codecheck-5823.git
