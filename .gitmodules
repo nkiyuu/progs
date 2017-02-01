@@ -1,3 +1,6 @@
 [submodule "codecheck/asahi/keyword"]
 	path = codecheck/asahi/keyword
 	url = https://github.com/nkiyuu/codecheck-5823.git
+[submodule "codecheck/asahi/trend"]
+	path = codecheck/asahi/trend
+	url = https://github.com/nkiyuu/codecheck-newstrend.git
