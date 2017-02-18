@@ -4,3 +4,6 @@
 [submodule "codecheck/asahi/trend"]
 	path = codecheck/asahi/trend
 	url = https://github.com/nkiyuu/codecheck-newstrend.git
+[submodule "sigmod2017"]
+	path = sigmod2017
+	url = http://www.shino.ecei.tohoku.ac.jp/gitbucket/git/igarashi/sigmod2017.git
