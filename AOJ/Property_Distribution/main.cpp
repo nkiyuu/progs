@@ -1,33 +1,40 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
+#include <string>
 
 using namespace std;
+typedef stringstream ss;
 
+vector< vector<string> > map;
+int lot_num;
 int main() {
     int row, col;
     cin >> row >> col;
-    int lot_num = row * col;
+    lot_num = row * col;
     string input;
-    vector<string> map;
+    int input_num = 0;
+    ss input_tmp;
 
     while(getline(cin, input)){
-        map.push_back(input);
-    }
-
-    for(int i = 0; i <= row; i++){
-        for(int j = 0; j < col; j++){
-            if(i == row){
-                if(map[i][j] == map[i][j+1]){
-                    lot_num--;
-                }
-            }
-            else {
-                if (map[i][j] == map[i][j + 1] || map[i][j] == map[i + 1][j]) {
-                    lot_num--;
-                }
-            }
+        if(input[0] == '0'){
+            break;
         }
+        map.push_back({});
+        map[input_num].push_back("$");
+        for(int i = 0; i < input.size(); i++){
+            input_tmp << input[i];
+            map[input_num].push_back(input_tmp.str());
+            input_tmp.str("");
+            input_tmp.clear();
+        }
+        cout << endl;
+        map[input_num].push_back("$");
+        input_num++;
     }
-    cout << lot_num << endl;
+    vector<string> last_row(col + 2, "$");
+    map.push_back(last_row);
+
+
     return 0;
 }
