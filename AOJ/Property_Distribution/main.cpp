@@ -23,25 +23,29 @@ void dfs(int row, int col, string mark){
 }
 
 int main() {
-    for (int i = 0; i < MAX_ROW; i++) {
-        for (int j = 0; j < MAX_COL; j++) {
-            map[i][j] = "$";
+    while(true) {
+        for (int i = 0; i < MAX_ROW; i++) {
+            for (int j = 0; j < MAX_COL; j++) {
+                map[i][j] = "$";
+            }
         }
-    }
-    int row, col;
-    cin >> row >> col;
-    stringstream ss;
-    string input;
+        int row, col;
+        cin >> row >> col;
+        if(row == 0){
+            break;
+        }
+        stringstream ss;
+        string input;
 
-    for (int i = 1; i < row + 1; i++) {
-        cin >> input;
-        for (int j = 0; j < col; j++) {
-            ss << input[j];
-            map[i][j + 1] = ss.str();
-            ss.str("");
-            ss.clear();
+        for (int i = 1; i < row + 1; i++) {
+            cin >> input;
+            for (int j = 0; j < col; j++) {
+                ss << input[j];
+                map[i][j + 1] = ss.str();
+                ss.str("");
+                ss.clear();
+            }
         }
-    }
 
 
 
@@ -53,16 +57,16 @@ int main() {
 //        cout << endl;
 //    }
 
-
-    int count = 0;
-    for(int i = 1; i < row + 1; i++){
-        for (int j = 1; j < col + 1; j++) {
-            if(map[i][j] != "$"){
-                dfs(i, j, map[i][j]);
-                count++;
+        int count = 0;
+        for (int i = 1; i < row + 1; i++) {
+            for (int j = 1; j < col + 1; j++) {
+                if (map[i][j] != "$") {
+                    dfs(i, j, map[i][j]);
+                    count++;
+                }
             }
         }
+        cout << count << endl;
     }
-    cout << count << endl;
     return 0;
 }
