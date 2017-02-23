@@ -11,3 +11,6 @@ _sigmod2017/test-harness/small.init
 _sigmod2017/test-harness/small.result
 _sigmod2017/test-harness/small.work
 codecheck/asahi/
+AOJ/cheese_0558/.idea/
+AOJ/cheese_0558/cmake-build-debug/
+AOJ/cheese_0558/CMakeLists.txt
