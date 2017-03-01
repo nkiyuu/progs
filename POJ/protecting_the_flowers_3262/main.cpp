@@ -4,37 +4,41 @@
 
 using namespace std;
 
+typedef long long int64;
+
+struct cow{
+    int64 T, D;
+};
+
+bool comp(const cow& left, const cow& right){
+    return -left.D*right.T < -right.D*left.T;
+}
+
 int main() {
     ios::sync_with_stdio(false);
     int N;
-    int total_D = 0;
+    int64 total_D = 0;
     cin >> N;
-    vector<vector<int> > cows;
+    vector<cow>  cows;
     cows.resize(N);
     for (int i = 0; i < N; i++) {
-        cows[i].resize(3);
-        cin >> cows[i][1] >> cows[i][2];
-        total_D += cows[i][2];
+        cin >> cows[i].T >> cows[i].D;
+        total_D += cows[i].D;
     }
 
-    for (int i = 0; i < N; i++) {
-        cows[i][0] = total_D * 2 * cows[i][1] - 2 * cows[i][1] * cows[i][2];
-    }
+    sort(cows.begin(), cows.end(), comp);
 
-    sort(cows.begin(), cows.end());
-
-    int ans = 0;
+    int64 ans = 0;
     int reduce_cost = 0;
     for (int i = 0; i < N; i++) {
-        reduce_cost += cows[i][2];
-        ans += (2*cows[i][1]*total_D - 2*cows[i][1]*reduce_cost);
+        total_D -= cows[i].D;
+        ans += 2*cows[i].T*total_D;
     }
 
     cout << ans << endl;
 //    for (int i = 0; i  < N; i++ ) {
 //        cout << cows[i][0] << " " << cows[i][1] << " " << cows[i][2] << endl;
 //    }
-
 
     return 0;
 }
