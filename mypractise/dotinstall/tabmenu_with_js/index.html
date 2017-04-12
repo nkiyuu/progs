@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab Menu Sample</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: Verdana, sans-serif;
+        }
+        .container{
+            padding: 0;
+            margin: 30px auto;
+            width: 500px;
+            background: #dce0e0;
+        }
+        ul.menu{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0;
+        }
+        ul.menu li{
+            display: inline-block;
+        }
+        ul.menu li a{
+            display: inline-block;
+            font-size: 14px;
+            width: 80px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            text-decoration: none;
+            padding: 7px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="menu">
+            <li><a href="#">About</a> </li>
+            <li><a href="#">Service</a> </li>
+            <li><a href="#">Contact</a> </li>
+        </ul>
+        <div class="content" id="about">
+            about about about
+        </div>
+        <div class="content" id="Service">
+            service service
+        </div>
+        <div class="content" id="Contact">
+            contact contact
+        </div>
+    </div>
+
+</body>
+</html>
