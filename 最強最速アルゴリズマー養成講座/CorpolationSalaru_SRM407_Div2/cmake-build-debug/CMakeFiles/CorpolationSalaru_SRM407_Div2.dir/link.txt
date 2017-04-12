@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++   -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/CorpolationSalaru_SRM407_Div2.dir/main.cpp.o  -o CorpolationSalaru_SRM407_Div2 
