@@ -3,12 +3,12 @@
 using namespace std;
 
 int main() {
-    long int x1, x2,k1,k2;
+    long int x1,x2,k1,k2;
     string sx1,sx2,sk1,sk2;
     cin >> x1 >> k1 >> x2 >> k2;
     sx1 = to_string(x1);
     sx2 = to_string(x2);
-
+    char ans = 'e';
 
     string sv1 = "";
     for(int i = 0; i < k1; i++){
@@ -19,18 +19,30 @@ int main() {
         sv2 += sx2;
     }
 
-    long long int v1 = stoll(sv1);
-    long long int v2 = stoll(sv2);
-
-    if(v1 == v2){
-        cout << "Equal" << endl;
+    if(sv1.size() < sv2.size()){
+        ans='l';
     }
-    else if(v1 > v2){
-        cout << "Greater" << endl;
+    else if(sv1.size() > sv2.size()){
+        ans='g';
     }
     else{
-        cout << "Less" << endl;
+        for(int i=(int)sv1.size(); i >= 0; --i) {
+            if ((int) (sv1[i] - '0') > (int) (sv2[i] - '0')) {
+                ans = 'g';
+            } else if ((int) (sv1[i] - '0') < (int) (sv2[i] - '0')) {
+                ans = 'l';
+            }
+        }
     }
-
+    switch (ans){
+        case 'g':
+            cout << "Greater" << endl;
+            break;
+        case 'l':
+            cout << "Less" << endl;
+            break;
+        case 'e':
+            cout << "Equal" << endl;
+    }
     return 0;
 }
