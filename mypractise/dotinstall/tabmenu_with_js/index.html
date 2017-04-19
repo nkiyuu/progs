@@ -35,25 +35,75 @@
             padding: 7px;
             color: #333;
         }
+        ul.menu li a.active{
+            background: #353d3e;
+            color: #fff;
+        }
+        ul.menu li a:not(active):hover{
+            opacity: 0.5;
+        }
+        .content{
+            font-size: 14px;
+            padding: 7px 10px;
+            line-height: 1.4;
+            background: #353d3e;
+            color: #fff;
+            min-height: 150px;
+            display: none;
+        }
+        .content.active{
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <ul class="menu">
-            <li><a href="#">About</a> </li>
-            <li><a href="#">Service</a> </li>
-            <li><a href="#">Contact</a> </li>
+            <li><a href="#" data-id="about" class="active menu_item">About</a> </li>
+            <li><a href="#" data-id="service" class="menu_item">Service</a> </li>
+            <li><a href="#" data-id="contact" class="menu_item">Contact</a> </li>
         </ul>
-        <div class="content" id="about">
+        <div class="content active"  id="about">
             about about about
         </div>
-        <div class="content" id="Service">
+        <div class="content" id="service">
             service service
         </div>
-        <div class="content" id="Contact">
+        <div class="content" id="contact">
             contact contact
         </div>
     </div>
+    <script>
+        (function () {
+            'use strict';
 
+            var menuItems = document.getElementsByClassName('menu_item');
+            var contents = document.getElementsByClassName('content');
+
+            var i;
+
+            for(i = 0; i < menuItems.length; i++){
+                menuItems[i].addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    var i;
+
+                    for(i = 0; i < menuItems.length; i++){
+                        menuItems[i].className = 'menu_item';
+                    }
+
+                    this.className = 'menu_item active';
+
+                    for(i = 0; i < contents.length; i++){
+                        contents[i].className = 'content';
+                    }
+
+                    document.getElementById(this.dataset.id).className = 'content active';
+
+                })
+            }
+
+        })();
+    </script>
 </body>
 </html>
