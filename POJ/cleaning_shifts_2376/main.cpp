@@ -23,17 +23,16 @@ int main() {
     }
     sort(cows.begin(), cows.end());
 
-    int start_day = 1;
     int finish_day = 0;
     int prev_finish_day;
     int counter = 0;
     int flag = 0;
     int cow_counter = 0;
 
-    while(counter < num_cow){
+    while(finish_day < end_day){
         flag = 0;
         prev_finish_day = finish_day;
-        while(counter < num_cow && start_day <= cows[counter][0] && cows[counter][0] <= prev_finish_day + 1){
+        while(counter < num_cow &&  cows[counter][0] <= prev_finish_day + 1){
             flag = 1;
             if(cows[counter][1] > finish_day){
                 finish_day = cows[counter][1];
@@ -45,8 +44,7 @@ int main() {
             break;
         }
         cow_counter += 1;
-        start_day = prev_finish_day + 1;
-        cout << "finish day is " << finish_day << endl;
+        //cout << "finish day is " << finish_day << endl;
     }
 
     if(finish_day < end_day){

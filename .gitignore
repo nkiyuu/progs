@@ -1,5 +1,4 @@
 paiza/
-DotInstall/
 todoList/
 _sigmod2017/compile.sh
 _sigmod2017/package.sh
@@ -17,3 +16,6 @@ AOJ/cheese_0558/cmake-build-debug/
 AOJ/cheese_0558/CMakeLists.txt
 
 AOJ/Property_Distribution/.idea/workspace.xml
+.idea
+cmake-build-debug
+CMakeLists.txt
