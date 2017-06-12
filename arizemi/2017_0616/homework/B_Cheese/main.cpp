@@ -7,7 +7,6 @@
 #define VSORT(v) sort(v.begin(), v.end());
 #define llong long long
 #define pb(a) push_back(a)
-#define INF 999999999
 #define PB push_back
 #define MP make_pair
 using namespace std;
@@ -16,51 +15,81 @@ typedef pair<llong, llong> LP;
 typedef pair<int, P> PP;
 typedef pair<llong, LP> LPP;
 
+static const int INF  = 1e9;
+
 int dy[]={0, 0, 1, -1};
 int dx[]={1, -1, 0, 0};
 
-char grid[1000][1000];
+int r, c, n;
+P cheese[11];
 
-int bfs(int sr, int sc, int gr, int gc){
-    queue<P> q;
-    q.push(MP(sr, sc));
-    grid[sr][sc] = '0';
-    int nr, nc;
-    while(!q.empty()){
-        nr = q.front().first;
-        nc = q.front().second;
-        REP(i, 4){
-           if(grid[nr+dy[i]][nc+dx[i]] == '.'){
-               grid[nr+dy[i]][nc+dx[i]] = (char);
+string grid[1002];
+int ans = 0;
+int d[1002][1002] ;
+
+int bfs(){
+
+    REP(i, n) {
+        int sr = cheese[i].first, sc = cheese[i].second;
+        int gr= cheese[i+1].first, gc = cheese[i+1].second;
+        REP(i, r + 2) {
+            REP(j, c + 2) {
+                d[i][j] = INF;
+            }
+        }
+        d[sr][sc] = 0;
+        queue<P> q;
+        q.push(MP(sr, sc));
+        int nr, nc;
+        while (!q.empty()) {
+            P now = q.front();
+            nr = now.first;
+            nc = now.second;
+            q.pop();
+            if (nr == gr && nc == gc){
+                ans += d[nr][nc];
+                break;
+            }
+            REP(i, 4) {
+                int mr = nr+dy[i], mc = nc+dx[i];
+                if (grid[mr][mc] != 'X') {
+                    if(d[mr][mc] == INF){
+                        d[mr][mc] = d[nr][nc] + 1;
+                        q.push(MP(mr, mc));
+                    }
+                }
             }
         }
     }
+    return 0;
 }
+
 int main(){
-    REP(i, 1000){
-        REP(j, 1000){
-            grid[i][j] = '#';
-        }
-    }
-    int r, c, n, pr, pc;
+
     cin >> r >> c >> n;
-    vector<P> cheese;
-    cheese.resize(n);
-    string line;
+    grid[0] = string (c+2, 'X');
     REP(i, r){
+        string line;
         cin >> line;
-        REP(j, c) {
-            grid[i + 1][j + 1] = line[j];
-            if (line[j] == 'S') {
-                pr = i + 1;
-                pc = j + 1;
+        line = "X" + line + "X";
+        grid[i + 1] = line;
+    }
+    grid[r + 1] = string (c+2, 'X');
+    REP(i, r + 2){
+        REP(j, c + 1){
+            char c = grid[i][j];
+            if(c == 'S'){
+                cheese[0].first = i;
+                cheese[0].second = j;
             }
-            if (line[j] > '0' && line[j] <= '9') {
-                int m = line[j] - '0';
-                cheese[m - 1].first = i + 1;
-                cheese[m - 1].second = j + 1;
+            if(c > '0' && c <= '9'){
+                int t = (int)c - '0';
+                cheese[t].first = i;
+                cheese[t].second = j;
             }
         }
     }
+    bfs();
+    cout << ans << endl;
     return 0;
 }
